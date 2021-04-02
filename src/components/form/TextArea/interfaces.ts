@@ -3,4 +3,4 @@ import { FormControlProps } from '../FormControl'
 
 export type TextAreaProps<P = {}> = InputHTMLAttributes<HTMLTextAreaElement> &
   P &
-  Omit<FormControlProps, 'children' | 'focused'>
+  Omit<FormControlProps, 'children' | 'focused' | 'disabled'>

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useMemo } from 'react'
 import {
   FormControlElementStyled,
@@ -24,9 +23,6 @@ const FormControl: React.FC<FormControlProps> = ({
   ...other
 }): JSX.Element => {
   return useMemo(() => {
-
-    console.log('children', children);
-    console.log('children?.props.value', children?.props.value);
 
     /**
      * Влияет на положение титла

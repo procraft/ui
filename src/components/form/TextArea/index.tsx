@@ -10,6 +10,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   error,
   helperText,
   fullWidth,
+  disabled = false,
   onFocus: onFocusProps,
   onBlur: onBlurProps,
   ...other
@@ -43,16 +44,18 @@ const TextArea: React.FC<TextAreaProps> = ({
           helperText={helperText}
           fullWidth={fullWidth}
           focused={focused}
+          disabled={disabled}
         >
           <TextAreaStyled
             onFocus={onFocus}
             onBlur={onBlur}
+            disabled={disabled}
             {...other}
           />
         </FormControl>
       </>
     ),
-    [error, title, helperText, fullWidth, focused, onFocus, onBlur, other]
+    [error, title, helperText, fullWidth, focused, disabled, onFocus, onBlur, other]
   )
 }
 

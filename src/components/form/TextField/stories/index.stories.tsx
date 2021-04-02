@@ -21,6 +21,7 @@ type ComponentStoryProps = Partial<ComponentProps> & {
 
 export const TextField: React.FC<ComponentStoryProps> = ({
   value: valueProps,
+  disabled = false,
   ...other
 }) => {
   const [value, valueSetter] = useState(valueProps)
@@ -31,7 +32,7 @@ export const TextField: React.FC<ComponentStoryProps> = ({
 
   return (
     <>
-      <Component {...other} value={value} onChange={onChange} />
+      <Component {...other} disabled={disabled} value={value} onChange={onChange} />
     </>
   )
 }
@@ -41,6 +42,7 @@ const args: ComponentStoryProps = {
   helperText: 'Very long Helper Textttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt',
   value: 'Very long Valueeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
   placeholder: 'Very long Placeholderrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',
+  disabled: false,
 }
 
 export default {

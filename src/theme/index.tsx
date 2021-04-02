@@ -46,12 +46,17 @@ const border = {
   },
 }
 
+const background = {
+  disabled: '#f2f2f2',
+}
+
 const theme = {
   breakpoints,
   ui: {
     color,
     text,
     border,
+    background,
   },
 }
 

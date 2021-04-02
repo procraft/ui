@@ -61,6 +61,7 @@ const args: ComponentStoryProps = {
   title: 'Title',
   helperText: 'Helper Text',
   value: options[1],
+  disabled: false,
 }
 
 export default {

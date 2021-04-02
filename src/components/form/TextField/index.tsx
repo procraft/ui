@@ -13,6 +13,7 @@ const TextField: React.FC<TextFieldProps> = ({
   fullWidth,
   onFocus: onFocusProps,
   onBlur: onBlurProps,
+  disabled = false,
   ...other
 }) => {
   const [focused, focusedSetter] = useState(false)
@@ -44,17 +45,19 @@ const TextField: React.FC<TextFieldProps> = ({
           helperText={helperText}
           fullWidth={fullWidth}
           focused={focused}
+          disabled={disabled}
         >
           <TextFieldStyled
             type={type}
             onFocus={onFocus}
             onBlur={onBlur}
+            disabled={disabled}
             {...other}
           />
         </FormControl>
       </>
     ),
-    [error, title, helperText, fullWidth, focused, type, onFocus, onBlur, other]
+    [error, title, helperText, fullWidth, focused, disabled, type, onFocus, onBlur, other]
   )
 }
 

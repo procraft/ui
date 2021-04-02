@@ -4,6 +4,8 @@ const inputPadding = 10
 
 export type FormControlStyledProps = {
   fullWidth?: boolean
+
+  disabled: boolean
 }
 
 type FormControlStyledPrivateProps = FormControlStyledProps & {
@@ -88,9 +90,6 @@ export const FormControlStyled = styled.div<FormControlStyledPrivateProps>`
     }
   }}
 
-  ${FormControlLabelStyled} {
-  }
-
   font-size: 1rem;
   line-height: 1;
   
@@ -107,6 +106,19 @@ export const FormControlStyled = styled.div<FormControlStyledPrivateProps>`
       return css`
         ${FormControlLabelStyled} {
           transform: translate(0, 1.5px) scale(0.8);
+        }
+      `
+    }
+  }}
+
+  ${({ disabled }) => {
+
+    if (disabled) {
+
+      return css`
+
+        ${FormControlElementStyled} {
+          background: ${({ theme }) => theme.ui.background.disabled}; 
         }
       `
     }

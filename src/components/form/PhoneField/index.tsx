@@ -176,10 +176,10 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
         title={title}
         helperText={helperText}
         shrink={!!value || !!placeholder}
+        disabled={disabled || false}
       >
         <PhoneFieldStyled
           // fullWidth={fullWidth}
-          disabled={disabled || false}
         >
           <Select<Region>
             // menuIsOpen

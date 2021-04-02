@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 import { SelectStyled } from '../Select/styles'
 
-type PhoneFieldStyledProps = {
-  disabled: boolean
-}
+type PhoneFieldStyledProps = {}
 
 export const PhoneFieldStyled = styled.div<PhoneFieldStyledProps>`
   /* margin-bottom: 20px; */

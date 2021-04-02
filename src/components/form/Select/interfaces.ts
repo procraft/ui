@@ -16,4 +16,5 @@ export interface Option<T extends any = string> extends OptionTypeBase {
 
 export type SelectProps<T extends Option<string> = Option<string>> = {
   unstyled?: boolean
+  disabled?: boolean
 } & ReactSelectProps<T>
