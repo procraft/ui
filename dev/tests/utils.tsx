@@ -2,7 +2,7 @@ import React, { ReactElement, useEffect, useMemo } from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { render as baseRender, RenderResult } from '@testing-library/react'
 import App from '../pages/_App'
-import theme from '../theme'
+import theme from '../../src/theme'
 import { ThemeProvider } from 'styled-components'
 
 // For handle css

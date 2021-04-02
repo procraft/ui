@@ -1,25 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
-import Component from '../../src'
+import Component from '..'
 
-import { render } from '../tests/utils'
+import { render } from '../../../../../dev/tests/utils'
 
 const border = '1px solid green'
 
 const ComponentStyled = styled(Component)`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.ui.color.primary};
 
   border: ${border};
 `
 
 describe('Component', () => {
   it('Render default', () => {
-    const tree = render(<Component />)
+    const tree = render(<Component focused={false}/>)
     expect(tree.container).toMatchSnapshot()
   })
 
   it('Render styled', () => {
-    const tree = render(<ComponentStyled />)
+    const tree = render(<ComponentStyled focused={false}/>)
     const node = tree.container.children[0]
     expect(tree.container).toMatchSnapshot()
     expect(node).toMatchSnapshot()
