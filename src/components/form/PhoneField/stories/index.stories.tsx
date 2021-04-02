@@ -11,30 +11,32 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks'
 
-import Component, { FormControlProps as ComponentProps } from '../'
+import Component, { PhoneFieldProps as ComponentProps } from '../'
 
-const title = '@procraft/ui/form/FormControl'
+const title = '@procraft/ui/form/PhoneField'
 
-type ComponentStoryProps = Partial<ComponentProps> & {
-  value: string
-  focused: boolean
+type ComponentStoryProps = Partial<ComponentProps>  & {
+  disabled: boolean,
 }
 
-export const FormControl: React.FC<ComponentStoryProps> = ({
-  value: valueProps,
+
+export const PhoneField: React.FC<ComponentStoryProps> = ({
+  value: valueProps = '',
   ...other
 }) => {
-  const [value, valueSetter] = useState(valueProps)
+  const [value, valueSetter] = useState<string>(valueProps)
 
-  const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    valueSetter(event.target.value || '')
+  const onChange = useCallback((phone: string, _valid: boolean) => {
+    valueSetter(phone)
   }, [])
 
   return (
     <>
-      <Component {...other}>
-        <input value={value || ''} onChange={onChange} />
-      </Component>
+      <Component
+        {...other}
+        value={value}
+        onChange={onChange}
+      />
     </>
   )
 }
@@ -42,14 +44,13 @@ export const FormControl: React.FC<ComponentStoryProps> = ({
 const args: ComponentStoryProps = {
   title: 'Title',
   helperText: 'Helper Text',
-  value: 'foo',
-  focused: false,
-  fullWidth: false,
+  // value: '+7-987-654-32-10',
+  disabled: false,
 }
 
 export default {
   title,
-  component: FormControl,
+  component: PhoneField,
   argTypes: {},
   args,
   parameters: {

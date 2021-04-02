@@ -15,22 +15,25 @@ const TextField: React.FC<TextFieldProps> = ({
   onBlur: onBlurProps,
   ...other
 }) => {
+  const [focused, focusedSetter] = useState(false)
 
-  const [focused, focusedSetter] = useState(false);
+  const onFocus = useCallback(
+    (event: React.FocusEvent<HTMLInputElement>) => {
+      focusedSetter(true)
 
-  const onFocus = useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+      onFocusProps && onFocusProps(event)
+    },
+    [onFocusProps]
+  )
 
-    focusedSetter(true);
+  const onBlur = useCallback(
+    (event: React.FocusEvent<HTMLInputElement>) => {
+      focusedSetter(false)
 
-    onFocusProps && onFocusProps(event);
-  }, [onFocusProps]);
-
-  const onBlur = useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-
-    focusedSetter(false);
-
-    onBlurProps && onBlurProps(event);
-  }, [onBlurProps]);
+      onBlurProps && onBlurProps(event)
+    },
+    [onBlurProps]
+  )
 
   return useMemo(
     () => (
@@ -42,7 +45,12 @@ const TextField: React.FC<TextFieldProps> = ({
           fullWidth={fullWidth}
           focused={focused}
         >
-          <TextFieldStyled type={type} onFocus={onFocus} onBlur={onBlur} {...other} />
+          <TextFieldStyled
+            type={type}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            {...other}
+          />
         </FormControl>
       </>
     ),

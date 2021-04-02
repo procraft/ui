@@ -13,7 +13,7 @@ import {
 
 import Component, { TextFieldProps as ComponentProps } from '../'
 
-const title = '@procraft/ui/TextField'
+const title = '@procraft/ui/form/TextField'
 
 type ComponentStoryProps = Partial<ComponentProps> & {
   value: string
@@ -40,7 +40,7 @@ const args: ComponentStoryProps = {
   title: 'Title',
   helperText: 'Helper Text',
   value: '',
-  placeholder: "Placeholder",
+  placeholder: 'Placeholder',
 }
 
 export default {

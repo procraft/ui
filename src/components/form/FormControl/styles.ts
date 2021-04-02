@@ -25,7 +25,8 @@ export const FormControlLabelStyled = styled.label`
   top: 0;
   left: 0;
   position: absolute;
-  transform: translate(${inputPadding}px, calc(1rem + ${inputPadding + 3}px)) scale(1);
+  transform: translate(${inputPadding}px, calc(1rem + ${inputPadding + 3}px))
+    scale(1);
   transform-origin: top left;
 
   padding: 0;
@@ -38,7 +39,7 @@ export const FormControlElementStyled = styled.div`
   /* border: 1px solid green; */
 
   margin-top: 16px;
-  position: relative;
+  /* position: relative; */
 `
 
 export const FormControlHelperTextStyled = styled.div`
@@ -84,7 +85,11 @@ export const FormControlStyled = styled.div<FormControlStyledPrivateProps>`
   ${FormControlLabelStyled} {
   }
 
+  font-size: 1rem;
+  line-height: 1;
+  
   input {
+    font-family: inherit;
     font-size: 1rem;
     line-height: 1;
     padding: ${inputPadding}px ${inputPadding / 2}px;

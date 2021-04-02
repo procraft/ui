@@ -14,5 +14,11 @@ export type FormControlProps = FormControlStyledProps & {
   /**
    * Необходимо чтобы двигать титл компонента
    */
-  focused: boolean;
+  focused: boolean
+
+  /**
+   * Отдельные вложенные компоненты могут не иметь в первом уровне свойства value,
+   * поэтому даем возможность явно указывать это свойство
+   */
+  shrink?: boolean
 }

@@ -11,30 +11,48 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks'
 
-import Component, { FormControlProps as ComponentProps } from '../'
+import Component, { SelectProps as ComponentProps } from '../'
+import { Option } from '../interfaces'
 
-const title = '@procraft/ui/form/FormControl'
+const title = '@procraft/ui/form/Select'
 
 type ComponentStoryProps = Partial<ComponentProps> & {
-  value: string
-  focused: boolean
+  value: Option | null
 }
 
-export const FormControl: React.FC<ComponentStoryProps> = ({
+const options: Option[] = [
+  {
+    label: 'Option 1',
+    value: '1',
+  },
+  {
+    label: 'Option 2',
+    value: '2',
+  },
+  {
+    label: 'Option 3',
+    value: '3',
+  },
+]
+
+export const Select: React.FC<ComponentStoryProps> = ({
   value: valueProps,
   ...other
 }) => {
-  const [value, valueSetter] = useState(valueProps)
+  const [value, valueSetter] = useState<Option | null>(valueProps)
 
-  const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    valueSetter(event.target.value || '')
+  const onChange = useCallback((value: Option | null) => {
+    valueSetter(value)
   }, [])
 
   return (
     <>
-      <Component {...other}>
-        <input value={value || ''} onChange={onChange} />
-      </Component>
+      <Component
+        {...other}
+        value={value}
+        options={options}
+        onChange={onChange}
+      />
     </>
   )
 }
@@ -42,14 +60,12 @@ export const FormControl: React.FC<ComponentStoryProps> = ({
 const args: ComponentStoryProps = {
   title: 'Title',
   helperText: 'Helper Text',
-  value: 'foo',
-  focused: false,
-  fullWidth: false,
+  value: options[1],
 }
 
 export default {
   title,
-  component: FormControl,
+  component: Select,
   argTypes: {},
   args,
   parameters: {
