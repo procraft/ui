@@ -54,10 +54,6 @@ export const FormControlHelperTextStyled = styled.div`
   font-size: 0.8rem;
   margin-top: 3px;
 
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 90%;
-  overflow: hidden;
 `
 
 export const FormControlStyled = styled.div<FormControlStyledPrivateProps>`
@@ -98,7 +94,7 @@ export const FormControlStyled = styled.div<FormControlStyledPrivateProps>`
   font-size: 1rem;
   line-height: 1;
   
-  input {
+  input, textarea {
     font-family: inherit;
     font-size: 1rem;
     line-height: 1;
