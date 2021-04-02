@@ -37,10 +37,10 @@ export const TextField: React.FC<ComponentStoryProps> = ({
 }
 
 const args: ComponentStoryProps = {
-  title: 'Title',
-  helperText: 'Helper Text',
-  value: '',
-  placeholder: 'Placeholder',
+  title: 'Very long ttttttttttttttttttttttttttttttttttttttttttttttttttttttle',
+  helperText: 'Very long Helper Textttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt',
+  value: 'Very long Valueeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+  placeholder: 'Very long Placeholderrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',
 }
 
 export default {

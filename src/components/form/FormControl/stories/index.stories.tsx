@@ -40,9 +40,9 @@ export const FormControl: React.FC<ComponentStoryProps> = ({
 }
 
 const args: ComponentStoryProps = {
-  title: 'Title',
-  helperText: 'Helper Text',
-  value: 'foo',
+  title: 'Very long ttttttttttttttttttttttttttttttttttttttttttttttttttttttle',
+  helperText: 'Very long Helper Textttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt',
+  value: 'Very long Valueeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
   focused: false,
   fullWidth: false,
 }

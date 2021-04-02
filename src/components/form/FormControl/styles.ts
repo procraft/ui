@@ -33,6 +33,11 @@ export const FormControlLabelStyled = styled.label`
   font-size: 1rem;
   font-weight: 400;
   line-height: 1;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 90%;
+  overflow: hidden;
 `
 
 export const FormControlElementStyled = styled.div`
@@ -48,6 +53,11 @@ export const FormControlHelperTextStyled = styled.div`
   color: ${({ theme }) => theme.ui.text.caption.color.secondary};
   font-size: 0.8rem;
   margin-top: 3px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 90%;
+  overflow: hidden;
 `
 
 export const FormControlStyled = styled.div<FormControlStyledPrivateProps>`
