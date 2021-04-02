@@ -55,7 +55,17 @@ const TextArea: React.FC<TextAreaProps> = ({
         </FormControl>
       </>
     ),
-    [error, title, helperText, fullWidth, focused, disabled, onFocus, onBlur, other]
+    [
+      error,
+      title,
+      helperText,
+      fullWidth,
+      focused,
+      disabled,
+      onFocus,
+      onBlur,
+      other,
+    ]
   )
 }
 

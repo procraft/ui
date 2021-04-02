@@ -26,22 +26,33 @@ export const TextArea: React.FC<ComponentStoryProps> = ({
 }) => {
   const [value, valueSetter] = useState(valueProps)
 
-  const onChange = useCallback((event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    valueSetter(event.target.value || '')
-  }, [])
+  const onChange = useCallback(
+    (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      valueSetter(event.target.value || '')
+    },
+    []
+  )
 
   return (
     <>
-      <Component {...other} disabled={disabled} value={value} onChange={onChange} />
+      <Component
+        {...other}
+        disabled={disabled}
+        value={value}
+        onChange={onChange}
+      />
     </>
   )
 }
 
 const args: ComponentStoryProps = {
   title: 'Very long ttttttttttttttttttttttttttttttttttttttttttttttttttttttle',
-  helperText: 'Very long Helper Textttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt',
-  value: 'Very long Valueeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  placeholder: 'Very long Placeholderrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',
+  helperText:
+    'Very long Helper Textttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt',
+  value:
+    'Very long Valueeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+  placeholder:
+    'Very long Placeholderrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',
   disabled: false,
 }
 

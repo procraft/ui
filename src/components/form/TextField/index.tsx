@@ -57,7 +57,18 @@ const TextField: React.FC<TextFieldProps> = ({
         </FormControl>
       </>
     ),
-    [error, title, helperText, fullWidth, focused, disabled, type, onFocus, onBlur, other]
+    [
+      error,
+      title,
+      helperText,
+      fullWidth,
+      focused,
+      disabled,
+      type,
+      onFocus,
+      onBlur,
+      other,
+    ]
   )
 }
 

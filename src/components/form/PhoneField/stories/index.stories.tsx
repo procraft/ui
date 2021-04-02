@@ -15,10 +15,9 @@ import Component, { PhoneFieldProps as ComponentProps } from '../'
 
 const title = '@procraft/ui/form/PhoneField'
 
-type ComponentStoryProps = Partial<ComponentProps>  & {
-  disabled: boolean,
+type ComponentStoryProps = Partial<ComponentProps> & {
+  disabled: boolean
 }
-
 
 export const PhoneField: React.FC<ComponentStoryProps> = ({
   value: valueProps = '',
@@ -32,11 +31,7 @@ export const PhoneField: React.FC<ComponentStoryProps> = ({
 
   return (
     <>
-      <Component
-        {...other}
-        value={value}
-        onChange={onChange}
-      />
+      <Component {...other} value={value} onChange={onChange} />
     </>
   )
 }

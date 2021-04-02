@@ -32,8 +32,6 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
   helperText,
   ...other
 }) => {
-
-
   const defaultRegion = useMemo(
     () => regionSelectOptions.find((n) => n.value === 'RU'),
     []
@@ -168,7 +166,7 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
     }
 
     return equal
-  }, []);
+  }, [])
 
   return useMemo(() => {
     const formatted = getFormattedPhone(value || '')
@@ -191,14 +189,17 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
     //   )
     // } else {
     return (
-      <FormControl error={error} focused={focused} fullWidth={fullWidth}
+      <FormControl
+        error={error}
+        focused={focused}
+        fullWidth={fullWidth}
         title={title}
         helperText={helperText}
         shrink={!!value || !!placeholder}
         disabled={disabled || false}
       >
         <PhoneFieldStyled
-          // fullWidth={fullWidth}
+        // fullWidth={fullWidth}
         >
           <Select<Region>
             // menuIsOpen
@@ -226,7 +227,23 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
       </FormControl>
     )
     // }
-  }, [disabled, error, filterOption, focused, fullWidth, getFormattedPhone, handleRegionChange, helperText, name, onChangePhone, other, placeholder, region, title, value])
+  }, [
+    disabled,
+    error,
+    filterOption,
+    focused,
+    fullWidth,
+    getFormattedPhone,
+    handleRegionChange,
+    helperText,
+    name,
+    onChangePhone,
+    other,
+    placeholder,
+    region,
+    title,
+    value,
+  ])
 }
 
 export default PhoneField

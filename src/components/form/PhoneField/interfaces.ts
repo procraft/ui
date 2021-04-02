@@ -2,7 +2,10 @@ import { InputHTMLAttributes } from 'react'
 import { FormControlProps } from '../FormControl'
 import { TextFieldProps } from '../TextField/interfaces'
 
-export type PhoneFieldProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
+export type PhoneFieldProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'onChange'
+> & {
   /**
    * Вариант отображения текстовое поле или просто текст
    */

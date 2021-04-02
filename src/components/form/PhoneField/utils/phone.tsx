@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
@@ -10,7 +10,7 @@ import {
 import { values } from 'lodash'
 
 import countryNames from '../../../../utils/country-names.ru.json'
-import { Option } from '../../Select';
+import { Option } from '../../Select'
 
 import ReactCountryFlag from 'react-country-flag'
 

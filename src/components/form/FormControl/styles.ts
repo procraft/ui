@@ -55,7 +55,6 @@ export const FormControlHelperTextStyled = styled.div`
   color: ${({ theme }) => theme.ui.text.caption.color.secondary};
   font-size: 0.8rem;
   margin-top: 3px;
-
 `
 
 export const FormControlStyled = styled.div<FormControlStyledPrivateProps>`
@@ -92,8 +91,9 @@ export const FormControlStyled = styled.div<FormControlStyledPrivateProps>`
 
   font-size: 1rem;
   line-height: 1;
-  
-  input, textarea {
+
+  input,
+  textarea {
     font-family: inherit;
     font-size: 1rem;
     line-height: 1;
@@ -112,13 +112,10 @@ export const FormControlStyled = styled.div<FormControlStyledPrivateProps>`
   }}
 
   ${({ disabled }) => {
-
     if (disabled) {
-
       return css`
-
         ${FormControlElementStyled} {
-          background: ${({ theme }) => theme.ui.background.disabled}; 
+          background: ${({ theme }) => theme.ui.background.disabled};
         }
       `
     }

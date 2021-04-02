@@ -23,12 +23,14 @@ const FormControl: React.FC<FormControlProps> = ({
   ...other
 }): JSX.Element => {
   return useMemo(() => {
-
     /**
      * Влияет на положение титла
      */
-    const shrink = shrinkProps ||
-      !!children?.props.value || !!children?.props.placeholder || focused
+    const shrink =
+      shrinkProps ||
+      !!children?.props.value ||
+      !!children?.props.placeholder ||
+      focused
 
     return (
       <FormControlStyled shrink={shrink} fullWidth={fullWidth} {...other}>
