@@ -1,7 +1,7 @@
 import { PhoneNumber } from 'google-libphonenumber'
 import React, { useCallback, useMemo, useState } from 'react'
 import FormControl from '../FormControl'
-import Select from '../Select'
+import Select, { Option } from '../Select'
 // import TextField from '../TextField'
 import { PhoneFieldStyled } from './styles'
 import {
@@ -151,6 +151,25 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
     [getFormattedPhone, onChange]
   )
 
+  const filterOption = useCallback((option: Option, rawInput: string) => {
+    let equal = true
+
+    if (rawInput) {
+      const reg = new RegExp(`^${rawInput}`, 'i')
+
+      if (
+        reg.test(option.value) ||
+        reg.test(option.data.countryName as string)
+      ) {
+        equal = true
+      } else {
+        equal = false
+      }
+    }
+
+    return equal
+  }, []);
+
   return useMemo(() => {
     const formatted = getFormattedPhone(value || '')
 
@@ -188,27 +207,7 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
             onChange={handleRegionChange}
             value={region}
             disabled={disabled}
-            // eslint-disable-next-line react/jsx-no-bind
-            filterOption={(option, rawInput) => {
-              let equal = true
-
-              if (rawInput) {
-                const reg = new RegExp(`^${rawInput}`, 'i')
-
-                if (
-                  reg.test(option.value) ||
-                  reg.test(option.data.countryName as string)
-                ) {
-                  equal = true
-                } else {
-                  equal = false
-                }
-              }
-
-              // console.log('filterOption rawInput', rawInput);
-
-              return equal
-            }}
+            filterOption={filterOption}
           />
           <span className="code">{code ? `+${code}` : code}</span>
           <input
@@ -227,7 +226,7 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
       </FormControl>
     )
     // }
-  }, [disabled, error, focused, fullWidth, getFormattedPhone, handleRegionChange, helperText, name, onChangePhone, other, placeholder, region, title, value])
+  }, [disabled, error, filterOption, focused, fullWidth, getFormattedPhone, handleRegionChange, helperText, name, onChangePhone, other, placeholder, region, title, value])
 }
 
 export default PhoneField

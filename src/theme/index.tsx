@@ -1,10 +1,3 @@
-import Color from 'color'
-
-export const darken = (rgba: string, amount: number) => {
-  const color = Color(rgba)
-
-  return color.darken(amount).toString()
-}
 
 /**
  * Размеры экранов
