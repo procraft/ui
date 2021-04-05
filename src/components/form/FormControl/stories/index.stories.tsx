@@ -23,6 +23,7 @@ type ComponentStoryProps = Partial<ComponentProps> & {
 export const FormControl: React.FC<ComponentStoryProps> = ({
   value: valueProps,
   disabled = false,
+  className,
   ...other
 }) => {
   const [value, valueSetter] = useState(valueProps)
@@ -33,7 +34,7 @@ export const FormControl: React.FC<ComponentStoryProps> = ({
 
   return (
     <>
-      <Component disabled={disabled} {...other}>
+      <Component disabled={disabled} className={className} {...other}>
         <input value={value || ''} onChange={onChange} disabled={disabled} />
       </Component>
     </>
@@ -49,6 +50,7 @@ const args: ComponentStoryProps = {
   focused: false,
   fullWidth: false,
   disabled: false,
+  className: undefined,
 }
 
 export default {

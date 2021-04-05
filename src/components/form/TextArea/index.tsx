@@ -13,6 +13,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   disabled = false,
   onFocus: onFocusProps,
   onBlur: onBlurProps,
+  className,
   ...other
 }) => {
   const [focused, focusedSetter] = useState(false)
@@ -45,6 +46,7 @@ const TextArea: React.FC<TextAreaProps> = ({
           fullWidth={fullWidth}
           focused={focused}
           disabled={disabled}
+          className={className}
         >
           <TextAreaStyled
             onFocus={onFocus}
@@ -56,6 +58,7 @@ const TextArea: React.FC<TextAreaProps> = ({
       </>
     ),
     [
+      className,
       error,
       title,
       helperText,

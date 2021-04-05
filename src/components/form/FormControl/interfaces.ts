@@ -21,4 +21,6 @@ export type FormControlProps = FormControlStyledProps & {
    * поэтому даем возможность явно указывать это свойство
    */
   shrink?: boolean
+
+  className?: string | undefined
 }

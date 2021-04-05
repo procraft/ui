@@ -30,6 +30,7 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
   error,
   title,
   helperText,
+  className,
   ...other
 }) => {
   const defaultRegion = useMemo(
@@ -197,6 +198,7 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
         helperText={helperText}
         shrink={!!value || !!placeholder}
         disabled={disabled || false}
+        className={className}
       >
         <PhoneFieldStyled
         // fullWidth={fullWidth}
@@ -228,6 +230,7 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
     )
     // }
   }, [
+    className,
     disabled,
     error,
     filterOption,

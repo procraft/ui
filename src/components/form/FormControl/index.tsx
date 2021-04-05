@@ -20,6 +20,7 @@ const FormControl: React.FC<FormControlProps> = ({
   fullWidth,
   focused,
   shrink: shrinkProps = false,
+  className,
   ...other
 }): JSX.Element => {
   return useMemo(() => {
@@ -33,7 +34,7 @@ const FormControl: React.FC<FormControlProps> = ({
       focused
 
     return (
-      <FormControlStyled shrink={shrink} fullWidth={fullWidth} {...other}>
+      <FormControlStyled className={className} shrink={shrink} fullWidth={fullWidth} {...other}>
         {title ? (
           <FormControlLabelStyled>{title}</FormControlLabelStyled>
         ) : null}
@@ -45,7 +46,7 @@ const FormControl: React.FC<FormControlProps> = ({
         ) : null}
       </FormControlStyled>
     )
-  }, [children, shrinkProps, focused, fullWidth, other, title, helperText])
+  }, [children, className, shrinkProps, focused, fullWidth, other, title, helperText])
 }
 
 export default FormControl

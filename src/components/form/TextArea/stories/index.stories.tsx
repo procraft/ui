@@ -40,6 +40,7 @@ export const TextArea: React.FC<ComponentStoryProps> = ({
         disabled={disabled}
         value={value}
         onChange={onChange}
+        className={undefined}
       />
     </>
   )

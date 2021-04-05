@@ -14,12 +14,12 @@ const ComponentStyled = styled(Component)`
 
 describe('Component', () => {
   it('Render default', () => {
-    const tree = render(<Component focused={false} disabled={false} />)
+    const tree = render(<Component className={undefined} focused={false} disabled={false} />)
     expect(tree.container).toMatchSnapshot()
   })
 
   it('Render styled', () => {
-    const tree = render(<ComponentStyled focused={false} disabled={false} />)
+    const tree = render(<ComponentStyled className={undefined} focused={false} disabled={false} />)
     const node = tree.container.children[0]
     expect(tree.container).toMatchSnapshot()
     expect(node).toMatchSnapshot()
