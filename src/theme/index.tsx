@@ -15,6 +15,7 @@ const color = {
   azure: '#48637B',
   azureLight: '#8799A9',
   azureDark: '#7F92A3',
+  error: '#7F92A3',
 }
 
 const text = {
@@ -29,6 +30,10 @@ const text = {
       primary: color.azureDark,
       secondary: color.azureLight,
     },
+  },
+  error: {
+    bg: "#FFEAEA",
+    color: "#A44E4E",
   },
 }
 

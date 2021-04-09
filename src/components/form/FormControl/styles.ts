@@ -1,12 +1,7 @@
 import styled, { css } from 'styled-components'
+import { FormControlStyledProps } from './interfaces'
 
 const inputPadding = 10
-
-export type FormControlStyledProps = {
-  fullWidth?: boolean
-
-  disabled: boolean
-}
 
 type FormControlStyledPrivateProps = FormControlStyledProps & {
   /**
@@ -116,6 +111,19 @@ export const FormControlStyled = styled.div<FormControlStyledPrivateProps>`
       return css`
         ${FormControlElementStyled} {
           background: ${({ theme }) => theme.ui.background.disabled};
+        }
+      `
+    }
+  }}
+
+  ${({ error }) => {
+    if (error) {
+      return css`
+        ${FormControlHelperTextStyled} {
+          padding: 10px 15px;
+          border-radius: 8px;
+          background: ${({ theme }) => theme.ui.text.error.bg};
+          color: ${({ theme }) => theme.ui.text.error.color};
         }
       `
     }

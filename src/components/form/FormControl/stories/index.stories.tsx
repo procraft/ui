@@ -51,6 +51,10 @@ const args: ComponentStoryProps = {
   fullWidth: false,
   disabled: false,
   className: undefined,
+  error: {
+    type: "required",
+    message: "Required field",
+  },
 }
 
 export default {

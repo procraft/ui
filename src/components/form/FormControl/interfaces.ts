@@ -1,8 +1,16 @@
 import React from 'react'
 import { FieldError } from 'react-hook-form'
-import { FormControlStyledProps } from './styles'
 
-export type FormControlProps = FormControlStyledProps & {
+export type FormControlStyledProps = {
+  fullWidth?: boolean
+
+  disabled: boolean
+
+  error: boolean
+}
+
+
+export type FormControlProps = Omit<FormControlStyledProps, 'error'> & {
   title?: string
 
   error?: FieldError | null | undefined
