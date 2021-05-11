@@ -142,9 +142,9 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
       const formatted = getFormattedPhone(event.currentTarget.value || '')
 
       if (formatted) {
-        const { formattedValue, fullNumber } = formatted
+        const { fullNumber } = formatted
 
-        onChange && onChange(formattedValue, validatePhone(fullNumber))
+        onChange && onChange(fullNumber, validatePhone(fullNumber))
       }
     },
     [getFormattedPhone, onChange]
