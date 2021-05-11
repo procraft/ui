@@ -15,4 +15,5 @@ export type PhoneFieldProps = Omit<
   value: string
   onChange?: (phone: string, valid: boolean) => void
   fullWidth?: boolean
+  menuIsOpen?: boolean
 } & Omit<FormControlProps, 'children' | 'focused'>

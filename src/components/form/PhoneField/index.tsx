@@ -31,6 +31,7 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
   title,
   helperText,
   className,
+  menuIsOpen,
   ...other
 }) => {
   const defaultRegion = useMemo(
@@ -211,6 +212,7 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
             value={region}
             disabled={disabled}
             filterOption={filterOption}
+            menuIsOpen={menuIsOpen}
           />
           <span className="code">{code ? `+${code}` : code}</span>
           <input
@@ -246,6 +248,7 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
     region,
     title,
     value,
+    menuIsOpen,
   ])
 }
 

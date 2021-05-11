@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import App from '../../../src/components/form/TextField'
+import PhoneField from '../../../src/components/form/PhoneField'
 
 const MainPage: React.FC = (props) => {
   return (
@@ -13,6 +14,13 @@ const MainPage: React.FC = (props) => {
         />
       </Head>
       <App className={undefined} {...props} />
+
+      <div>
+        <PhoneField
+          disabled={false}
+          value=""
+        />
+      </div>
     </>
   )
 }

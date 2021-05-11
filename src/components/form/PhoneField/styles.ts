@@ -15,21 +15,8 @@ export const PhoneFieldStyled = styled.div<PhoneFieldStyledProps>`
 
   input {
     border: none;
-    background: none;-
+    background: none;
   } 
-
-  /* > * {
-    border: none;
-    margin: 0 2px;
-  }
-
-    input {
-      padding-left: 4px;
-      font-size: 16px;
-      padding-bottom: 8px;
-    } 
-  */
-
 
   ${SelectStyled} {
     margin-right: 5px;
@@ -55,7 +42,7 @@ export const PhoneFieldStyled = styled.div<PhoneFieldStyledProps>`
     }
 
     .RSelect__menu {
-      .css-4ljt47-MenuList {
+      .RSelect__menu-list {
         .RSelect__option {
           display: flex;
           align-items: baseline;

@@ -17,6 +17,7 @@ const title = '@procraft/ui/form/PhoneField'
 
 type ComponentStoryProps = Partial<ComponentProps> & {
   disabled: boolean
+  menuIsOpen: boolean
 }
 
 export const PhoneField: React.FC<ComponentStoryProps> = ({
@@ -41,6 +42,7 @@ const args: ComponentStoryProps = {
   helperText: 'Helper Text',
   // value: '+7-987-654-32-10',
   disabled: false,
+  menuIsOpen: false,
 }
 
 export default {
