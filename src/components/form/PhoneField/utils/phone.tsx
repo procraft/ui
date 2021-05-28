@@ -58,7 +58,7 @@ interface RegionPhoneNumberData {
 }
 
 export const getCountryCodeForRegion = (region: CountryName) => {
-  const code = parseInt(phoneUtil.getCountryCodeForRegion(region))
+  const code = phoneUtil.getCountryCodeForRegion(region)
 
   return !isNaN(code) ? code : null
 }
