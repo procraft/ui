@@ -37,7 +37,7 @@
     ]
   },
   "dependencies": {
-    "google-libphonenumber": "^3.2.16",
+    "google-libphonenumber": "^3.2.21",
     "lodash": "^4.17.20",
     "react": "^17.0.1",
     "react-country-flag": "^2.3.0",
@@ -59,7 +59,7 @@
     "@types/chai": "^4.2.14",
     "@types/cypress": "^1.1.3",
     "@types/express": "^4.17.9",
-    "@types/google-libphonenumber": "^7.4.19",
+    "@types/google-libphonenumber": "^7.4.21",
     "@types/http-proxy-middleware": "^0.19.3",
     "@types/jest": "^26.0.15",
     "@types/lodash": "^4.14.161",
