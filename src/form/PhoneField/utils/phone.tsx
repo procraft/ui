@@ -9,7 +9,7 @@ import {
 } from 'google-libphonenumber'
 import { values } from 'lodash'
 
-import countryNames from '../../../../utils/country-names.ru.json'
+import countryNames from '../../../utils/country-names.ru.json'
 import { Option } from '../../Select'
 
 import ReactCountryFlag from 'react-country-flag'

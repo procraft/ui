@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import App from '../../../src/components/form/TextField'
-import PhoneField from '../../../src/components/form/PhoneField'
+import App from '../../../src/form/TextField'
+import PhoneField from '../../../src/form/PhoneField'
 
 const MainPage: React.FC = (props) => {
   return (

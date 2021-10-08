@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Component from '..'
 
-import { render } from '../../../../../dev/tests/utils'
+import { render } from '../../../../dev/tests/utils'
 
 const border = '1px solid green'
 
