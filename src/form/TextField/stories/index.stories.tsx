@@ -11,7 +11,7 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks'
 
-import Component, { TextFieldProps as ComponentProps } from '../'
+import { TextField as Component, TextFieldProps as ComponentProps } from '../'
 
 const title = '@procraft/ui/form/TextField'
 

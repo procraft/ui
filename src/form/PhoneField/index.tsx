@@ -1,7 +1,7 @@
 import { PhoneNumber } from 'google-libphonenumber'
 import React, { useCallback, useMemo, useState } from 'react'
-import FormControl from '../FormControl'
-import Select, { Option } from '../Select'
+import { FormControl } from '../FormControl'
+import { Select, Option } from '../Select'
 // import TextField from '../TextField'
 import { PhoneFieldStyled } from './styles'
 import {
@@ -19,7 +19,7 @@ import { PhoneFieldProps } from './interfaces'
 export { validatePhone }
 export * from './interfaces'
 
-const PhoneField: React.FC<PhoneFieldProps> = ({
+export const PhoneField: React.FC<PhoneFieldProps> = ({
   fullWidth,
   value,
   name,
@@ -251,5 +251,3 @@ const PhoneField: React.FC<PhoneFieldProps> = ({
     menuIsOpen,
   ])
 }
-
-export default PhoneField

@@ -1,11 +1,11 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import FormControl from '../FormControl'
+import { FormControl } from '../FormControl'
 import { TextAreaStyled } from './styles'
 import { TextAreaProps } from './interfaces'
 
 export * from './interfaces'
 
-const TextArea: React.FC<TextAreaProps> = ({
+export const TextArea: React.FC<TextAreaProps> = ({
   title,
   error,
   helperText,
@@ -72,4 +72,3 @@ const TextArea: React.FC<TextAreaProps> = ({
   )
 }
 
-export default TextArea

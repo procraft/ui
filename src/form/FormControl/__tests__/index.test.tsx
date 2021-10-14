@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Component from '..'
+import {FormControl as Component} from '..'
 
 import { render } from '../../../../dev/tests/utils'
 

@@ -10,7 +10,7 @@ import { SelectProps, Option } from './interfaces'
 
 export * from './interfaces'
 
-const Select = <T extends Option = Option>({
+export const Select = <T extends Option = Option>({
   name,
   unstyled,
   disabled,
@@ -32,4 +32,3 @@ const Select = <T extends Option = Option>({
   }, [unstyled, name, disabled, other])
 }
 
-export default Select

@@ -11,7 +11,7 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks'
 
-import Component, { TextAreaProps as ComponentProps } from '../'
+import { TextArea as Component, TextAreaProps as ComponentProps } from '../'
 
 const title = '@procraft/ui/form/TextArea'
 

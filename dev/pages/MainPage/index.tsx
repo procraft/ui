@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import App from '../../../src/form/TextField'
-import PhoneField from '../../../src/form/PhoneField'
+import { TextField } from '../../../src/form/TextField'
+import { PhoneField } from '../../../src/form/PhoneField'
 
 const MainPage: React.FC = (props) => {
   return (
@@ -13,7 +13,10 @@ const MainPage: React.FC = (props) => {
           content="Component boilerplate for prisma-cms"
         />
       </Head>
-      <App className={undefined} {...props} />
+      <TextField className={undefined}
+        title="Test field"
+        helperText="Some gelper text"
+        {...props} />
 
       <div>
         <PhoneField

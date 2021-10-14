@@ -12,7 +12,7 @@ export * from './interfaces'
 /**
  * Обертка для поля ввода
  */
-const FormControl: React.FC<FormControlProps> = ({
+export const FormControl: React.FC<FormControlProps> = ({
   children,
   title,
   helperText,
@@ -48,5 +48,3 @@ const FormControl: React.FC<FormControlProps> = ({
     )
   }, [shrinkProps, children, focused, className, fullWidth, other, title, error, helperText])
 }
-
-export default FormControl

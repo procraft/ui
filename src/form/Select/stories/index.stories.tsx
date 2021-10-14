@@ -11,7 +11,7 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks'
 
-import Component, { SelectProps as ComponentProps } from '../'
+import { Select as Component, SelectProps as ComponentProps } from '../'
 import { Option } from '../interfaces'
 
 const title = '@procraft/ui/form/Select'

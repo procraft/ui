@@ -1,11 +1,11 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import FormControl from '../FormControl'
+import { FormControl } from '../FormControl'
 import { TextFieldStyled } from './styles'
 import { TextFieldProps } from './interfaces'
 
 export * from './interfaces'
 
-const TextField: React.FC<TextFieldProps> = ({
+export const TextField: React.FC<TextFieldProps> = ({
   type = 'text',
   title,
   error,
@@ -74,5 +74,3 @@ const TextField: React.FC<TextFieldProps> = ({
     ]
   )
 }
-
-export default TextField

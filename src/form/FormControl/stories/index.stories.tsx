@@ -11,7 +11,7 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks'
 
-import Component, { FormControlProps as ComponentProps } from '../'
+import { FormControl as Component, FormControlProps as ComponentProps } from '../'
 
 const title = '@procraft/ui/form/FormControl'
 
