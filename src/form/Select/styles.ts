@@ -8,6 +8,8 @@ export type SelectStyledProps = {
 }
 
 export const SelectStyled = styled.div<SelectStyledProps>`
+  font-size: 12px;
+
   .RSelect__menu {
     width: auto;
     max-width: 400px;

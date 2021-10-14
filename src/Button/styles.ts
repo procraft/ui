@@ -28,7 +28,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   text-transform: uppercase;
 
   line-height: 1.4em;
-  font-size: 0.875rem;
+  font-size: ${0.875 * 12}px;
   min-height: 36px;
 
   &:enabled {
@@ -50,7 +50,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
         return css`
           padding: 7px 8px;
           min-width: 64px;
-          font-size: 0.8125rem;
+          font-size: ${0.8125 * 12}px;
           min-height: 32px;
         `
     }

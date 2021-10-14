@@ -47,7 +47,7 @@ export const PhoneFieldStyled = styled.div<PhoneFieldStyledProps>`
           display: flex;
           align-items: baseline;
 
-          font-size: 0.9rem;
+          font-size: ${0.9 * 12}px;
 
           .flag {
             width: 24px;
