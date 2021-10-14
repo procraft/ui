@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import { TextField } from '../../../src/form/TextField'
 import { PhoneField } from '../../../src/form/PhoneField'
+import { Button } from '../../../src/Button'
 
 const MainPage: React.FC = (props) => {
   return (
@@ -23,6 +24,14 @@ const MainPage: React.FC = (props) => {
           disabled={false}
           value=""
         />
+      </div>
+
+      <div>
+        <Button
+          variant="raised"
+        >
+          Click me
+        </Button>
       </div>
     </>
   )
