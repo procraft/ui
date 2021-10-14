@@ -6,6 +6,7 @@ export type ButtonStyledProps = {
 }
 
 export const ButtonStyled = styled.button<ButtonStyledProps>`
+  font-family: inherit;
   border: 0;
   border-radius: 2px;
   margin: 0;
