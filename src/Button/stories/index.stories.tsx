@@ -13,6 +13,8 @@ import {
 
 import { Button as Component, ButtonProps as ComponentProps } from '../'
 
+import MuiButton from 'material-ui/Button'
+
 const title = '@procraft/ui/Button'
 
 type ComponentStoryProps = Partial<ComponentProps> & {}
@@ -32,12 +34,22 @@ export const Button: React.FC<ComponentStoryProps> = ({ ...other }) => {
       <Component {...other} variant="raised" size="small">
         Raised button small
       </Component>
+
+      <div>
+        <MuiButton
+          {...other}
+          onClick={undefined}
+        >
+          MuiButton
+        </MuiButton>
+      </div>
     </>
   )
 }
 
 const args: ComponentStoryProps = {
   disabled: false,
+  color: 'primary',
 }
 
 export default {

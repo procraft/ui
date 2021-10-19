@@ -1,8 +1,9 @@
-import styled, { css } from 'styled-components'
+import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
 
 export type ButtonStyledProps = {
   size?: 'small'
   variant?: 'raised'
+  color?: "default" | "primary"
 }
 
 export const ButtonStyled = styled.button<ButtonStyledProps>`
@@ -57,19 +58,49 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
     }
   }}
 
-  ${({ variant }) => {
+  ${({ variant, color }) => {
     switch (variant) {
       case 'raised':
-        return css`
-          box-shadow: 0px 1px 5px 0px rgb(0 0 0 / 20%),
-            0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 3px 1px -2px rgb(0 0 0 / 12%);
-          background-color: #e0e0e0;
+        {
 
-          &:disabled {
-            box-shadow: none;
-            background-color: rgba(0, 0, 0, 0.12);
+          let colorStyles: FlattenSimpleInterpolation | undefined
+
+          switch (color) {
+
+            case "default":
+
+              colorStyles = css`
+                background-color: #e0e0e0;
+              `;
+
+              break;
+
+            case "primary":
+
+              colorStyles = css`
+                color: #fff;
+                background-color: #3f51b5;
+
+                &:hover {
+                  background-color: #303f9f;
+                }
+              `;
+
+              break;
+
           }
-        `
+
+          return css`
+            box-shadow: 0px 1px 5px 0px rgb(0 0 0 / 20%),
+              0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 3px 1px -2px rgb(0 0 0 / 12%);
+
+            &:disabled {
+              box-shadow: none;
+              background-color: rgba(0, 0, 0, 0.12);
+            }
+
+            ${colorStyles}
+          `}
     }
   }}
 `
