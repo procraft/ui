@@ -21,6 +21,10 @@ export const Select = <T extends Option = Option>({
       <SelectStyled unstyled={unstyled}>
         <RSelect<T>
           // menuIsOpen={true}
+          // https://stackoverflow.com/a/63106230
+          // TODO Вообще строка вроде как должна быть обязательная, но не видно никаких ошибок,
+          // а заморачиваться с лишним ререндером тоже нет особого смысла
+          instanceId="react-select"
           {...other}
           name={name}
           className="RSelect"
