@@ -6,5 +6,5 @@ export const TextAreaStyled = styled.textarea<TextAreaStyledProps>`
   border: ${({ theme }) => theme.ui.border.input.default};
   border-radius: 6px;
   width: 100%;
-  min-height: ${4 * 12}px;
+  min-height: ${4 * 14}px;
 `

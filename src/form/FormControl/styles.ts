@@ -22,12 +22,12 @@ export const FormControlLabelStyled = styled.label`
   top: 0;
   left: 0;
   position: absolute;
-  transform: translate(${inputPadding}px, calc(12px + ${inputPadding + 3}px))
+  transform: translate(${inputPadding}px, calc(14px + ${inputPadding + 3}px))
     scale(1);
   transform-origin: top left;
 
   padding: 0;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1;
 
@@ -48,7 +48,7 @@ export const FormControlHelperTextStyled = styled.div`
   /* border: 1px solid purple; */
 
   color: ${({ theme }) => theme.ui.text.caption.color.secondary};
-  font-size: ${0.8 * 12}px;
+  font-size: ${0.9 * 14}px;
   margin-top: 3px;
 `
 
@@ -84,13 +84,13 @@ export const FormControlStyled = styled.div<FormControlStyledPrivateProps>`
     }
   }}
 
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1;
 
   input,
   textarea {
     font-family: inherit;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1;
     padding: ${inputPadding}px ${inputPadding / 2}px;
     width: 100%;
@@ -100,7 +100,7 @@ export const FormControlStyled = styled.div<FormControlStyledPrivateProps>`
     if (shrink) {
       return css`
         ${FormControlLabelStyled} {
-          transform: translate(0, 1.5px) scale(0.8);
+          transform: translate(0, 1.5px) scale(0.9);
         }
       `
     }
