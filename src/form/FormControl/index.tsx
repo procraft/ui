@@ -34,7 +34,13 @@ export const FormControl: React.FC<FormControlProps> = ({
       focused
 
     return (
-      <FormControlStyled className={className} shrink={shrink} fullWidth={fullWidth} error={!!error} {...other}>
+      <FormControlStyled
+        className={className}
+        shrink={shrink}
+        fullWidth={fullWidth}
+        error={!!error}
+        {...other}
+      >
         {title ? (
           <FormControlLabelStyled>{title}</FormControlLabelStyled>
         ) : null}
@@ -46,5 +52,15 @@ export const FormControl: React.FC<FormControlProps> = ({
         ) : null}
       </FormControlStyled>
     )
-  }, [shrinkProps, children, focused, className, fullWidth, other, title, error, helperText])
+  }, [
+    shrinkProps,
+    children,
+    focused,
+    className,
+    fullWidth,
+    other,
+    title,
+    error,
+    helperText,
+  ])
 }

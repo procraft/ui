@@ -11,7 +11,10 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks'
 
-import { FormControl as Component, FormControlProps as ComponentProps } from '../'
+import {
+  FormControl as Component,
+  FormControlProps as ComponentProps,
+} from '../'
 
 const title = '@procraft/ui/form/FormControl'
 
@@ -52,8 +55,8 @@ const args: ComponentStoryProps = {
   disabled: false,
   className: undefined,
   error: {
-    type: "required",
-    message: "Required field",
+    type: 'required',
+    message: 'Required field',
   },
 }
 

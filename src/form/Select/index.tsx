@@ -35,4 +35,3 @@ export const Select = <T extends Option = Option>({
     )
   }, [unstyled, name, disabled, other])
 }
-

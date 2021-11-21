@@ -25,7 +25,7 @@ export const IconButton: React.FC<ComponentStoryProps> = ({ ...other }) => {
 
   return (
     <>
-      <Component callback={onClick} {...other}>
+      <Component onClick={onClick} {...other}>
         <svg
           width="14"
           height="17"
@@ -52,6 +52,7 @@ export const IconButton: React.FC<ComponentStoryProps> = ({ ...other }) => {
 
 const args: ComponentStoryProps = {
   disabled: false,
+  variant: 'raised',
 }
 
 export default {

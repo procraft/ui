@@ -32,8 +32,8 @@ const text = {
     },
   },
   error: {
-    bg: "#FFEAEA",
-    color: "#A44E4E",
+    bg: '#FFEAEA',
+    color: '#A44E4E',
   },
 }
 

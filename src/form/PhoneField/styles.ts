@@ -16,7 +16,7 @@ export const PhoneFieldStyled = styled.div<PhoneFieldStyledProps>`
   input {
     border: none;
     background: none;
-  } 
+  }
 
   ${SelectStyled} {
     margin-right: 5px;

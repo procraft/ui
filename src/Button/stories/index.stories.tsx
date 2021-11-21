@@ -14,6 +14,7 @@ import {
 import { Button as Component, ButtonProps as ComponentProps } from '../'
 
 import MuiButton from 'material-ui/Button'
+import MuiIconButton from 'material-ui/IconButton'
 
 const title = '@procraft/ui/Button'
 
@@ -36,12 +37,18 @@ export const Button: React.FC<ComponentStoryProps> = ({ ...other }) => {
       </Component>
 
       <div>
-        <MuiButton
-          {...other}
-          onClick={undefined}
-        >
+        <MuiButton {...other} onClick={undefined}>
           MuiButton
         </MuiButton>
+        <MuiButton {...other} onClick={undefined} color="secondary">
+          MuiButton color: secondary
+        </MuiButton>
+        <MuiIconButton {...other} onClick={undefined} color="secondary">
+          MuiIconButton color: secondary
+        </MuiIconButton>
+        <MuiIconButton {...other} onClick={undefined} color="secondary">
+          MuiIconButton color: secondary raised
+        </MuiIconButton>
       </div>
     </>
   )

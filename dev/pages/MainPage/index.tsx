@@ -17,7 +17,8 @@ const MainPage: React.FC = (props) => {
       </Head>
 
       <div>
-        <TextField className={undefined}
+        <TextField
+          className={undefined}
           title="Test field"
           helperText="Some gelper text"
           {...props}
@@ -25,7 +26,8 @@ const MainPage: React.FC = (props) => {
       </div>
 
       <div>
-        <TextField className={undefined}
+        <TextField
+          className={undefined}
           title="Test field 2"
           helperText="Some gelper text"
           {...props}
@@ -33,7 +35,8 @@ const MainPage: React.FC = (props) => {
       </div>
 
       <div>
-        <TextField className={undefined}
+        <TextField
+          className={undefined}
           title="Test field 3"
           helperText="Some gelper text"
           value="Some value"
@@ -42,38 +45,23 @@ const MainPage: React.FC = (props) => {
       </div>
 
       <div>
-        <PhoneField
-          disabled={false}
-          value=""
-        />
+        <PhoneField disabled={false} value="" />
       </div>
 
       <div>
-        <PhoneField
-          disabled={false}
-          value="+7-987-777-47-47"
-        />
+        <PhoneField disabled={false} value="+7-987-777-47-47" />
       </div>
 
       <div>
-        <TextArea
-          title=""
-        />
+        <TextArea title="" />
       </div>
 
       <div>
-        <TextArea
-          title="Title"
-          helperText="helperText"
-        />
+        <TextArea title="Title" helperText="helperText" />
       </div>
 
       <div>
-        <Button
-          variant="raised"
-        >
-          Click me
-        </Button>
+        <Button variant="raised">Click me</Button>
       </div>
     </>
   )

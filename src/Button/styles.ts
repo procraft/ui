@@ -3,7 +3,7 @@ import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
 export type ButtonStyledProps = {
   size?: 'small'
   variant?: 'raised'
-  color?: "default" | "primary"
+  color?: 'default' | 'primary' | 'secondary'
 }
 
 export const ButtonStyled = styled.button<ButtonStyledProps>`
@@ -58,49 +58,90 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
     }
   }}
 
+
+  ${({ color }) => {
+    let colorStyles: FlattenSimpleInterpolation | undefined
+
+    switch (color) {
+      case 'primary':
+        colorStyles = css`
+          color: #3f51b5;
+
+          &:hover {
+            background-color: rgba(63, 81, 181, 0.08);
+          }
+        `
+
+        break
+
+      case 'secondary':
+        colorStyles = css`
+          color: #f50057;
+
+          &:hover {
+            background-color: rgba(245, 0, 87, 0.08);
+          }
+        `
+
+        break
+    }
+
+    return css`
+      ${colorStyles}
+    `
+  }}
+  }}
+
   ${({ variant, color }) => {
     switch (variant) {
-      case 'raised':
-        {
+      case 'raised': {
+        let colorStyles: FlattenSimpleInterpolation | undefined
 
-          let colorStyles: FlattenSimpleInterpolation | undefined
+        switch (color) {
+          case 'default':
+            colorStyles = css`
+              background-color: #e0e0e0;
+            `
 
-          switch (color) {
+            break
 
-            case "default":
+          case 'primary':
+            colorStyles = css`
+              color: #fff;
+              background-color: #3f51b5;
 
-              colorStyles = css`
-                background-color: #e0e0e0;
-              `;
+              &:hover {
+                background-color: #303f9f;
+              }
+            `
 
-              break;
+            break
 
-            case "primary":
+          case 'secondary':
+            colorStyles = css`
+              color: #f50057;
+              background-color: transparent;
 
-              colorStyles = css`
-                color: #fff;
-                background-color: #3f51b5;
+              &:hover {
+                background-color: rgba(245, 0, 87, 0.08);
+              }
+            `
 
-                &:hover {
-                  background-color: #303f9f;
-                }
-              `;
+            break
+        }
 
-              break;
+        return css`
+          box-shadow: 0px 1px 5px 0px rgb(0 0 0 / 20%),
+            0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 3px 1px -2px rgb(0 0 0 / 12%);
 
+          &:disabled {
+            box-shadow: none;
+            background-color: rgba(0, 0, 0, 0.12);
           }
 
-          return css`
-            box-shadow: 0px 1px 5px 0px rgb(0 0 0 / 20%),
-              0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 3px 1px -2px rgb(0 0 0 / 12%);
-
-            &:disabled {
-              box-shadow: none;
-              background-color: rgba(0, 0, 0, 0.12);
-            }
-
-            ${colorStyles}
-          `}
+          ${colorStyles}
+        `
+      }
     }
   }}
 `

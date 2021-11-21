@@ -9,7 +9,6 @@ export type FormControlStyledProps = {
   error: boolean
 }
 
-
 export type FormControlProps = Omit<FormControlStyledProps, 'error'> & {
   title?: string
 

@@ -32,7 +32,12 @@ export const PhoneField: React.FC<ComponentStoryProps> = ({
 
   return (
     <>
-      <Component className={undefined} {...other} value={value} onChange={onChange} />
+      <Component
+        className={undefined}
+        {...other}
+        value={value}
+        onChange={onChange}
+      />
     </>
   )
 }

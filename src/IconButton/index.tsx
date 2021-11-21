@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import MuiIconButton from 'material-ui/IconButton'
+import React, { useMemo } from 'react'
 import { IconButtonProps } from './interfaces'
+import { IconButtonStyled } from './styles'
 
 export * from './interfaces'
 
@@ -10,47 +10,39 @@ export * from './interfaces'
  * В итоге, если где-то на уровне нативных событий оборвали распространение
  * через event.stopPropagation(), то до обработчика просто не доходит дело.
  * Здесь я использую нативный хэндлер.
- * @deprecated Пока можно использовать, но в дальнейшем надо будет доработать Button
  */
 export const IconButton: React.FC<IconButtonProps> = ({
   callback,
+  onClick,
   children,
-  name,
-  style,
+  // name,
   ...other
 }) => {
-  const [node, ref] = useState<HTMLDivElement | null>(null)
+  // const [node, ref] = useState<HTMLDivElement | null>(null)
 
-  useEffect(() => {
-    if (!node) {
-      return
-    }
+  // useEffect(() => {
+  //   if (!node) {
+  //     return
+  //   }
 
-    const onClick = (event: MouseEvent) => {
-      // event.preventDefault()
-      event.stopPropagation()
+  //   const onClick = (event: MouseEvent) => {
+  //     // event.preventDefault()
+  //     event.stopPropagation()
 
-      callback(event)
-    }
+  //     callback(event)
+  //   }
 
-    node.addEventListener('click', onClick)
+  //   node.addEventListener('click', onClick)
 
-    return () => {
-      node?.removeEventListener('click', onClick)
-    }
-  }, [callback, node])
+  //   return () => {
+  //     node?.removeEventListener('click', onClick)
+  //   }
+  // }, [callback, node])
 
   return useMemo(() => {
     return (
-      <MuiIconButton
-        {...other}
-        style={{
-          position: 'relative',
-          ...style,
-          // border: '1px solid blue',
-        }}
-      >
-        <div
+      <IconButtonStyled onClick={onClick || callback} {...other}>
+        {/* <div
           ref={ref}
           style={{
             display: 'flex',
@@ -68,10 +60,10 @@ export const IconButton: React.FC<IconButtonProps> = ({
           // поэтому в коллбэках не получается просто так name получить.
           // Будем пробрасывать data-name атрибут
           data-name={name}
-        >
-          {children}
-        </div>
-      </MuiIconButton>
+        > */}
+        {children}
+        {/* </div> */}
+      </IconButtonStyled>
     )
-  }, [children, name, style, other])
+  }, [onClick, other, children, callback])
 }
