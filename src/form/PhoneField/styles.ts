@@ -18,6 +18,10 @@ export const PhoneFieldStyled = styled.div<PhoneFieldStyledProps>`
     background: none;
   }
 
+  &, * {
+    box-sizing: border-box;
+  }
+
   ${SelectStyled} {
     margin-right: 5px;
 

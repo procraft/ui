@@ -5,4 +5,8 @@ type TextFieldStyledProps = {}
 export const TextFieldStyled = styled.input<TextFieldStyledProps>`
   border: ${({ theme }) => theme.ui.border.input.default};
   border-radius: 6px;
+
+  &, * {
+    box-sizing: border-box;
+  }
 `

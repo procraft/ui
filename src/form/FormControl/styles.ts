@@ -72,6 +72,10 @@ export const FormControlStyled = styled.div<FormControlStyledPrivateProps>`
     outline: none;
   }
 
+  &, * {
+    box-sizing: border-box;
+  }
+
   ${({ fullWidth }) => {
     if (fullWidth) {
       return css`

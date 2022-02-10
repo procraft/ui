@@ -10,6 +10,10 @@ export type SelectStyledProps = {
 export const SelectStyled = styled.div<SelectStyledProps>`
   font-size: 12px;
 
+  &, * {
+    box-sizing: border-box;
+  }
+
   .RSelect__menu {
     width: auto;
     max-width: 400px;
