@@ -160,28 +160,28 @@ export function getExampleNumberByRegion(region: Region) {
   return fullNumber.substr(spacePos > -1 ? spacePos + 1 : 0)
 }
 
-// /**
-//  * Tries to detect the region from the up to first three digits of the given value (part of phone number)
-//  * @returns region code (RU, US) if found or null if not found
-//  */
-// export function detectRegionByPhone(phonePart: string): string | null {
-//   const normalized = (PhoneNumberUtil as any).normalizeDigitsOnly(phonePart)
-//   let idx = 0
-//   let accum = ''
-//   // eslint-disable-next-line no-constant-condition
-//   while (true) {
-//     if (normalized.length <= idx || idx > 2) {
-//       return null
-//     }
-//     accum += normalized[idx]
-//     const regions = (phoneUtil as any).getRegionCodesForCountryCode(+accum)
-//     if (regions.length > 0) {
-//       return regions[0]
-//     } else {
-//       idx++
-//     }
-//   }
-// }
+/**
+ * Tries to detect the region from the up to first three digits of the given value (part of phone number)
+ * @returns region code (RU, US) if found or null if not found
+ */
+export function detectRegionByPhone(phonePart: string): string | null {
+  const normalized = (PhoneNumberUtil as any).normalizeDigitsOnly(phonePart)
+  let idx = 0
+  let accum = ''
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    if (normalized.length <= idx || idx > 2) {
+      return null
+    }
+    accum += normalized[idx]
+    const regions = (phoneUtil as any).getRegionCodesForCountryCode(+accum)
+    if (regions.length > 0) {
+      return regions[0]
+    } else {
+      idx++
+    }
+  }
+}
 
 // /**
 //  * Returns only digits from the given value
@@ -309,7 +309,9 @@ export function getFormattedPhoneValue(
 // }
 
 export function getRegionByPhone(phone: string): Region | undefined {
-  const res = regionSelectOptions.find(x => phone.startsWith(x.code))
+  const region = phone ? detectRegionByPhone(phone) : null
+  const res = regionSelectOptions.find(x => x.value === region)
+
   if (res) {
     return res
   } else {
