@@ -24,6 +24,7 @@ export type CountryName = keyof typeof countryNames
 export interface Region extends Option {
   value: CountryName
   label: string | JSX.Element
+  code: string
 }
 
 export const phoneUtil = PhoneNumberUtil.getInstance()
@@ -103,6 +104,7 @@ export const regionSelectOptions: Region[] = values(
   const region = data.region as keyof typeof countryNames
 
   return {
+    code: String(data.code),
     value: region,
     label: (
       <>
@@ -111,10 +113,7 @@ export const regionSelectOptions: Region[] = values(
           <ReactCountryFlag
             countryCode={data.region}
             svg
-            style={{
-              width: '100%',
-              height: '100%',
-            }}
+            style={{ width: '100%', height: '100%' }}
           />
         </div>{' '}
         <span className="region">
@@ -308,3 +307,13 @@ export function getFormattedPhoneValue(
 //     return ''
 //   }
 // }
+
+export function getRegionByPhone(phone: string): Region | undefined {
+  const res = regionSelectOptions.find(x => phone.startsWith(x.code))
+  if (res) {
+    return res
+  } else {
+    return regionSelectOptions.find((n) => n.value === 'RU')
+  }
+}
+

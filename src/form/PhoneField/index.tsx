@@ -2,7 +2,6 @@ import { PhoneNumber } from 'google-libphonenumber'
 import React, { useCallback, useMemo, useState } from 'react'
 import { FormControl } from '../FormControl'
 import { Select, Option } from '../Select'
-// import TextField from '../TextField'
 import { PhoneFieldStyled } from './styles'
 import {
   getCountryCodeForRegion,
@@ -12,7 +11,7 @@ import {
   getFormattedPhoneValue,
   getExampleNumberByRegion,
   validatePhone,
-  phoneUtil,
+  phoneUtil, getRegionByPhone
 } from './utils/phone'
 import { PhoneFieldProps } from './interfaces'
 
@@ -35,8 +34,8 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
   ...other
 }) => {
   const defaultRegion = useMemo(
-    () => regionSelectOptions.find((n) => n.value === 'RU'),
-    []
+    () => getRegionByPhone(value),
+    [value]
   )
 
   const [region, setRegion] = useState(defaultRegion)
@@ -49,41 +48,10 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
   const placeholder = placeholderProps || exampleNumber || ''
 
   const handleRegionChange = useCallback((selectedRegion: Region | null) => {
-    // console.log('handleRegionChange selectedRegion', selectedRegion)
-
     if (selectedRegion) {
-      // console.log('handleRegionChange selectedRegion code', code, typeof code)
-
-      // if (selectedRegion.value === "RU") {
-      //   //
-      // }
-
       setRegion(selectedRegion)
     }
-
-    // this.formatter = getAsYouTypeFormatter(selectedRegion)
-    // const countryCode = getPhoneCodeByRegion(selectedRegion)
-    // const fullNumber = this.getFinalValue(countryCode, '')
-
-    // this.setState(
-    //   {
-    //     selectedRegion, countryCode, fullNumber,
-    //     numberInRegion: '',
-    //     exampleNumber: getExampleNumberByRegion(selectedRegion),
-    //   },
-    //   () => {
-    //     if (this.props.onChange) {
-    //       this.props.onChange(fullNumber) // call externally injected onChange (i.e. from redux-forms)
-    //     }
-    //   },
-    // )
-
-    // if (this.inputRef) {
-    //   this.inputRef.focus()
-    // }
   }, [])
-
-  // const [phone, setPhone] = useState('')
 
   const getFormattedPhone = useCallback(
     (phone: string) => {
@@ -99,11 +67,6 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
         return
       }
 
-      // const isPossibleNumber = phoneUtil.isPossibleNumber(phone);
-
-      // console.log('isPossibleNumber', isPossibleNumber);
-
-      // let phoneWithoutCode = phone;
       let formattedValue = phone
       let fullNumber = phone
       let number: PhoneNumber | undefined
@@ -159,7 +122,8 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
 
       if (
         reg.test(option.value) ||
-        reg.test(option.data.countryName as string)
+        reg.test(option.data.countryName as string) ||
+        reg.test(option.data.code as string)
       ) {
         equal = true
       } else {
@@ -176,20 +140,8 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
     const {
       code = '',
       formattedValue = '',
-      // fullNumber = "",
     } = formatted || {}
 
-    // if (displayType === 'text') {
-    //   return (
-    //     <NumberFormat
-    //       value={formattedValue}
-    //       // type="tel"
-    //       displayType="text"
-    //       format="+# (###) ###-##-##"
-    //       mask="_"
-    //     />
-    //   )
-    // } else {
     return (
       <FormControl
         error={error}
@@ -201,11 +153,8 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
         disabled={disabled || false}
         className={className}
       >
-        <PhoneFieldStyled
-        // fullWidth={fullWidth}
-        >
+        <PhoneFieldStyled>
           <Select<Region>
-            // menuIsOpen
             unstyled
             options={regionSelectOptions}
             onChange={handleRegionChange}
@@ -216,11 +165,8 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
           />
           <span className="code">{code ? `+${code}` : code}</span>
           <input
-            // unstyledBorder
-            // fullWidth={true}
             name={name}
             type="tel"
-            // value={value}
             value={formattedValue || ''}
             disabled={disabled}
             onChange={onChangePhone}
@@ -230,7 +176,6 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
         </PhoneFieldStyled>
       </FormControl>
     )
-    // }
   }, [
     className,
     disabled,
