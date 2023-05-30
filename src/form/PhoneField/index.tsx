@@ -1,22 +1,26 @@
 import { PhoneNumber } from 'google-libphonenumber'
-import React, { useCallback, useMemo, useState } from 'react'
+import { isEmpty } from 'lodash'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import { Geolocator } from '../../common/geolocator'
 import { FormControl } from '../FormControl'
-import { Select, Option } from '../Select'
+import { Option, Select } from '../Select'
+import { PhoneFieldProps } from './interfaces'
 import { PhoneFieldStyled } from './styles'
 import {
-  getCountryCodeForRegion,
+  CountryName,
   Region,
-  regionSelectOptions,
   getAsYouTypeFormatter,
-  getFormattedPhoneValue,
+  getCountryCodeForRegion,
   getExampleNumberByRegion,
+  getFormattedPhoneValue,
+  getRegionByPhone,
+  phoneUtil,
+  regionSelectOptions,
   validatePhone,
-  phoneUtil, getRegionByPhone
 } from './utils/phone'
-import { PhoneFieldProps } from './interfaces'
 
-export { validatePhone }
 export * from './interfaces'
+export { validatePhone }
 
 export const PhoneField: React.FC<PhoneFieldProps> = ({
   fullWidth,
@@ -33,12 +37,7 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
   menuIsOpen,
   ...other
 }) => {
-  const defaultRegion = useMemo(
-    () => getRegionByPhone(value),
-    [value]
-  )
-
-  const [region, setRegion] = useState(defaultRegion)
+  const [region, setRegion] = useState<Region | undefined | null>(null)
 
   const exampleNumber = useMemo(
     () => (region ? getExampleNumberByRegion(region) : ''),
@@ -134,13 +133,26 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
     return equal
   }, [])
 
+  useEffect(() => {
+    if (!isEmpty(value)) {
+      setRegion(getRegionByPhone(value))
+
+      return
+    }
+
+    new Geolocator().getCurrentRegion().then((countryName) => {
+      const region = getRegionByPhone(
+        `+${getCountryCodeForRegion(countryName as CountryName) ?? 7}`
+      )
+
+      setRegion(region)
+    })
+  }, [value])
+
   return useMemo(() => {
     const formatted = getFormattedPhone(value || '')
 
-    const {
-      code = '',
-      formattedValue = '',
-    } = formatted || {}
+    const { code = '', formattedValue = '' } = formatted || {}
 
     return (
       <FormControl
