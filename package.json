@@ -1,7 +1,7 @@
 {
   "name": "@procraft/ui",
   "description": "UIkit",
-  "version": "1.4.5",
+  "version": "1.5.0",
   "private": false,
   "main": "dist",
   "scripts": {
