@@ -147,7 +147,7 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
 
       setRegion(region)
     })
-  }, [value])
+  }, [])
 
   return useMemo(() => {
     const formatted = getFormattedPhone(value || '')
