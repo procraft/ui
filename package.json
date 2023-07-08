@@ -37,7 +37,7 @@
     ]
   },
   "dependencies": {
-    "google-libphonenumber": "^3.2.21",
+    "google-libphonenumber": "^3.2.32",
     "lodash": "^4.17.20",
     "material-ui": "1.0.0-beta.43",
     "react": "^17.0.1",
