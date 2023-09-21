@@ -117,17 +117,11 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
     let equal = true
 
     if (rawInput) {
-      const reg = new RegExp(`^${rawInput}`, 'i')
-
-      if (
-        reg.test(option.value) ||
-        reg.test(option.data.countryName as string) ||
-        reg.test(option.data.code as string)
-      ) {
-        equal = true
-      } else {
-        equal = false
-      }
+      equal = [
+        option.value,
+        option.data.countryName,
+        option.data.code,
+      ].some(x => x.startsWith(rawInput))
     }
 
     return equal
