@@ -165,7 +165,7 @@ export function getExampleNumberByRegion(region: Region) {
  * @returns region code (RU, US) if found or null if not found
  */
 export function detectRegionByPhone(phonePart: string): string | null {
-  const normalized = (PhoneNumberUtil as any).normalizeDigitsOnly(phonePart)
+  const normalized = normalizePhoneNumber(phonePart)
   let idx = 0
   let accum = ''
   // eslint-disable-next-line no-constant-condition
@@ -183,12 +183,12 @@ export function detectRegionByPhone(phonePart: string): string | null {
   }
 }
 
-// /**
-//  * Returns only digits from the given value
-//  */
-// export function normalizeNumber(phoneNumber: string): string {
-//   return (PhoneNumberUtil as any).normalizeDigitsOnly(phoneNumber)
-// }
+/**
+ * Returns only digits from the given value
+ */
+export function normalizePhoneNumber(phoneNumber: string): string {
+  return (PhoneNumberUtil as any).normalizeDigitsOnly(phoneNumber)
+}
 
 /**
  * Creates or returns cached phone formatter for the given region

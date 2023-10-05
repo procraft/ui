@@ -17,10 +17,11 @@ import {
   phoneUtil,
   regionSelectOptions,
   validatePhone,
+  normalizePhoneNumber,
 } from './utils/phone'
 
 export * from './interfaces'
-export { validatePhone }
+export { validatePhone, normalizePhoneNumber }
 
 export const PhoneField: React.FC<PhoneFieldProps> = ({
   fullWidth,
