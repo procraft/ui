@@ -93,10 +93,7 @@ function prepareRegionData() {
   return { byRegion, byCode }
 }
 
-export const {
-  byRegion: phoneNumberDataByRegion,
-  byCode: phoneNumberDataByCode,
-} = prepareRegionData()
+export const { byRegion: phoneNumberDataByRegion } = prepareRegionData()
 
 export const regionSelectOptions: Region[] = values(
   phoneNumberDataByRegion

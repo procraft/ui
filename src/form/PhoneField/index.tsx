@@ -115,17 +115,20 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
   )
 
   const filterOption = useCallback((option: Option, rawInput: string) => {
-    let equal = true
-
     if (rawInput) {
-      equal = [
-        option.value,
-        option.data.countryName,
-        option.data.code,
-      ].some(x => x.startsWith(rawInput))
+      const inputLowerCase = rawInput.toLowerCase()
+      if (inputLowerCase.startsWith('+')) {
+        return inputLowerCase.length == 1 || option.data.code.startsWith(inputLowerCase.substr(1))
+      } else {
+        return [
+          option.value,
+          option.data.countryName,
+          option.data.code,
+        ].some(x => x.toLowerCase().startsWith(inputLowerCase))
+      }
     }
 
-    return equal
+    return true
   }, [])
 
   useEffect(() => {
@@ -135,13 +138,19 @@ export const PhoneField: React.FC<PhoneFieldProps> = ({
       return
     }
 
-    new Geolocator().getCurrentRegion().then((countryName) => {
-      const region = getRegionByPhone(
-        `+${getCountryCodeForRegion(countryName as CountryName) ?? 7}`
-      )
+    const languages = navigator.languages || [navigator.language]
+    const firstNonEnglish = languages.find(x => !x.toLowerCase().includes('en'))
+    if (firstNonEnglish?.toLowerCase() !== 'ru') {
+      new Geolocator().getCurrentRegion().then(countryName => {
+        const region = getRegionByPhone(
+          `+${getCountryCodeForRegion(countryName as CountryName) ?? 7}`
+        )
 
-      setRegion(region)
-    })
+        setRegion(region)
+      })
+    } else {
+      setRegion(getRegionByPhone('+7'))
+    }
   }, [])
 
   return useMemo(() => {
